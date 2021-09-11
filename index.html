@@ -1,0 +1,149 @@
+<!-- ВАРИАНТ 32012 -->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Web #1</title>
+    <style>
+        body {
+            background: #e5f8ff;
+        }
+
+        .block {
+            background: #5eaecc;
+            box-shadow: 0 0 5px #999999;
+
+            margin-left: auto;
+            margin-right: auto;
+            width: 40%;
+            margin-bottom: 20px;
+            padding: 20px;
+
+            border-radius: 30px;
+
+            transition: 1s;
+        }
+
+        .block:hover {
+            box-shadow: 0 0 20px #999999;
+        }
+
+        #header {
+            font-family: fantasy;
+            font-size: 30px;
+            color: white;
+        }
+
+        #header > div {
+            text-align: center;
+        }
+
+        img {
+            height: 50%;
+            width: 50%;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .input_container {
+            font-family: fantasy;
+            font-size: 30px;
+            color: white;
+
+            margin-left: 30px;
+            display: flex;
+            justify-content: left;
+            align-items: center;
+        }
+
+        #select_x {
+            width: 30%;
+        }
+
+        label {
+            margin-right: 10px;
+        }
+
+        button {
+            padding: 5px 0;
+            width: 30px;
+            margin-right: 5px;
+
+            border: none;
+            border-radius: 5px;
+            background: #F7FDFF;
+            transition: 500ms;
+        }
+
+        button:hover {
+            background: #cccccc;
+            cursor: pointer;
+        }
+
+        #img_container {
+            background: #e5f8ff;
+        }
+
+    </style>
+    <body>
+        <div class="block" id="header">
+            <div id="student">Danil Khanalainen, P3232</div>
+            <div id="variant">#32012</div>
+        </div>
+
+        <div class="block">
+            <form name="form" method="GET" action="script.php">
+
+                <div class="input_container">
+                    <label for="select_x">X:</label>
+                    <input type="text" name="x" placeholder="(-3; 5)" required id="select_x" maxlength="5">
+                </div>
+
+                <div class="input_container">
+                    <label>Y:</label>
+                    <button name="y" value="-5" onclick="validateX()">-5</button>
+                    <button name="y" value="-4" onclick="validateX()">-4</button>
+                    <button name="y" value="-3" onclick="validateX()">-3</button>
+                    <button name="y" value="-2" onclick="validateX()">-2</button>
+                    <button name="y" value="-1" onclick="validateX()">-1</button>
+                    <button name="y" value="0" onclick="validateX()">0</button>
+                    <button name="y" value="1" onclick="validateX()">1</button>
+                    <button name="y" value="2" onclick="validateX()">2</button>
+                    <button name="y" value="3" onclick="validateX()">3</button>
+                </div>
+
+                <div class="input_container">
+                    <label for="select_r">R:</label>
+                    <select id="select_r" name="r">
+                        <option value="1">1</option>
+                        <option value="1.5">1.5</option>
+                        <option value="2">2</option>
+                        <option value="2.5">2.5</option>
+                        <option value="3">3</option>
+                    </select>
+                </div>
+
+            </form>
+        </div>
+        <div class="block" id="img_container">
+            <img src="grid.png">
+        </div>
+    </body>
+</head>
+
+<script>
+    function validateX() {
+        let x = document.getElementById("select_x");
+
+        if (isNaN(x.value)) {
+            event.preventDefault();
+            alert("Type a float number");
+        } else if (parseFloat(x.value) <= -3 || parseFloat(x.value) >= 5) {
+            event.preventDefault();
+            alert("Type a number inside of (-3; 5)");
+        }
+    }
+
+</script>
+
+</html>
